@@ -730,14 +730,15 @@ def main():
             f"{g['stats']['backward']/total_edges:.3f} (запрошено backprob={args.backprob})"
         )
 
-        print(
-            f"  доля в диапазоне:    "
-            f"{g['stats']['in_range'] / total_edges:.3f}"
-        )
-        print(
-            f"  доля вне диапазона:  "
-            f"{g['stats']['out_of_range'] / total_edges:.3f}"
-        )
+        if  args.topology != "sequential":
+            print(
+                f"  доля в диапазоне:    "
+                f"{g['stats']['in_range'] / total_edges:.3f}"
+            )
+            print(
+                f"  доля вне диапазона:  "
+                f"{g['stats']['out_of_range'] / total_edges:.3f}"
+            )
 
     if args.verify:
         v = verify_graph(g)
